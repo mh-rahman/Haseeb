@@ -30,11 +30,14 @@ int main(){
 	cout<<"Enter the number of possible steps:\n";
 	cin>>numberOfSteps;
 	vector<int> steps;
-	int temp;
+	int temp,minStep=INT_MAX;
 	cout<<"Enter the "<<numberOfSteps<<" steps in ascending order:\n";
 	for (int i=0;i<numberOfSteps;i++){
 		cin>>temp;
 		steps.push_back(temp);
+		if(temp<minStep){
+			minStep=temp;
+		}
 	}
 	
 	//cout<<"Recursion:"<<getOpt(numberOfStairs,steps,numberOfSteps)<<"\n";
@@ -42,10 +45,10 @@ int main(){
 	vector <double> optArray;
 	for (int i=0; i<=numberOfStairs; i++){
 		optArray.push_back(0);
-		if (i==0||i==steps[0]){
+		if (i==0||i==minStep){
 			optArray[i]=1;
 		}
-		else if (i>steps[0]){
+		else if (i>minStep){
 			for (int j=0;j<numberOfSteps;j++){
 				if(steps[j]>i){
 					break;
