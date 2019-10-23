@@ -3,9 +3,9 @@
 using namespace std;
 
 int getOpt(int N, vector<int> x,int size) {
-	
+
 	int optValue=0;
-	
+
 	if(N==0||N==x[0]){
 		return 1;
 	}
@@ -17,12 +17,12 @@ int getOpt(int N, vector<int> x,int size) {
 			optValue+=getOpt(N-x[i],x,size);
 		}
 	}
-	
+
 	return optValue;
 }
 
 int main(){
-	
+
 	int numberOfStairs;
 	cout<<"Enter the number of stairs:\n";
 	cin>>numberOfStairs;
@@ -39,9 +39,9 @@ int main(){
 			minStep=temp;
 		}
 	}
-	
+
 	//cout<<"Recursion:"<<getOpt(numberOfStairs,steps,numberOfSteps)<<"\n";
-	
+
 	vector <double> optArray;
 	for (int i=0; i<=numberOfStairs; i++){
 		optArray.push_back(0);
@@ -58,7 +58,7 @@ int main(){
 		}
 		cout<<optArray[i]<<"\t";
 	}
-	
+
 	cout<<"\nBottom Up:"<<optArray[numberOfStairs];
 	return 0;
 }
