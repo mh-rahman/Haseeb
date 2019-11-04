@@ -59,6 +59,14 @@ int main(){
 		cout<<optArray[i]<<"\t";
 	}
 
-	cout<<"\nBottom Up:"<<optArray[numberOfStairs];
+	cout<<"\nBottom Up:"<<optArray[numberOfStairs]<<endl;
+	
+	if(optArray[numberOfStairs]!=0){
+		cout<<"False";
+	}
+	else{
+		cout<<"True";
+	}
+	
 	return 0;
 }

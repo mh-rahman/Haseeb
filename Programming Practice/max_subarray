@@ -1,0 +1,36 @@
+def recmax(self,nums,i,j):
+        l=len(nums)
+        if l==1:
+            return i,j,nums[0]
+        else:
+            ci=l//2-1
+            cj=l//2
+            li,lj,lMax=self.recmax(nums[0:ci],0,ci)
+            ri,rj,rMax=self.recmax(nums[cj:l],cj,l-1)
+
+            cl_sum=nums[ci]
+            temp=cl_sum
+            while cl_sum>=temp and ci>=0:
+                temp=cl_sum
+                ci-=1
+                cl_sum+=nums[ci]
+            ci+=1
+            cl_sum=temp
+
+            cr_sum=nums[cj]
+            temp=cr_sum
+            while cr_sum>=temp and cj<l:
+                temp=cr_sum
+                cj+=1
+                cr_sum+=nums[cj]
+            cj-=1
+            cr_sum=temp
+
+            c_sum=cl_sum+cr_sum
+
+            if c_sum > l_sum and c_sum > r_sum:
+                return ci,cj,c_sum
+            elif r_sum > c_sum and r_sum > c_sum:
+                return ri,rj,r_sum
+            else:
+                return li,lj,l_sum
